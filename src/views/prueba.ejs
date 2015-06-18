@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Microservices</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/price-range.css" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link href="css/animate.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
+	<link href="css/responsive.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->       
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script src="/javascripts/misc.js"></script>
+</head><!--/head-->
+
+<body>
+	
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-1">
+					<div class="left-sidebar">
+						
+					
+					</div>
+				</div>
+
+				<div class="col-sm-9 padding-right">
+					<div class="features_items"><!--features_items-->
+						<h2 class="title text-center">Features Items</h2>
+						<% for (var i in body) { %>
+						<div class="col-sm-4">
+							<div class="product-image-wrapper">
+								<div class="single-products">
+										<div class="productinfo text-center">
+											<img src=" <%="/images/" + body[i].model + ".jpg" %>" alt="" />
+											<h2>$<%= body[i].price %></h2>
+											<p><%= body[i].model %></p>
+											<p> Talla: <%= body[i].size %></p>
+										<form method="POST" action="/catalogo/addToCart">
+											<select name = "amount">
+											  <option value="1">1</option>
+											  <option value="2">2</option>
+											  <option value="3">3</option>
+											  <option value="4">4</option>
+											  <option value="5">5</option>
+											</select>
+											<p></p>
+											<input type="hidden" name="model" value=<%= body[i].model %>>
+											<input type="hidden" name="size" value=<%= body[i].size %>>
+											<button class="btn btn-default add-to-cart" type="submit"><i class="fa fa-shopping-cart"></i>Añadir al carrito</button>
+										</form>
+										</div>
+
+										<!-- ?model=<%= body[i].model %>&size=<%= body[i].size %> -->
+<!-- 										<div class="product-overlay">
+											<div class="overlay-content">
+												<h2>$<%= body[i].price %></h2>
+												<p><%= body[i].model %></p>
+												<p> Talla: <%= body[i].size %></p>
+												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+											</div>
+										</div> -->
+								</div>
+								
+							</div>
+						</div>
+						<% } %>
+
+						
+					</div><!--features_items-->
+
+							</div>
+						</div>
+					</div><!--/category-tab-->
+					
+				</div>
+			</div>
+		</div>
+	</section>
+	
+
+  
+    <script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.scrollUp.min.js"></script>
+	<script src="js/price-range.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
